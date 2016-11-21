@@ -1,6 +1,6 @@
-## Tarea.
+# Tarea.
 
-#### Arquitectura Model View Presenter y como se diferencia del Model View Controller.
+## Arquitectura Model View Presenter y como se diferencia del Model View Controller.
 
 Model view controller (MVC) es un patrón que permite desacoplar la implementación de las vistas de la implementación lógica de negocio de nuestro modelo.
 
@@ -20,7 +20,7 @@ Es por ello que se introduce el MVP que es un patrón derivado de MVC comúnment
 
 * Presenter: En este patrón	 es el encargafo de coordinar la implementación de la vista y el modelo, actualiza la vista y actúa sobre los eventos de un usuario que se envían por la vista. El presenter también recupera los datos del modelo y los prepara para su visualización.
 
-#### Investigar más a detalle la arquitectura CLEAN.
+## Investigar más a detalle la arquitectura CLEAN.
 
 La arquitectura Clean fue propuesta por Robert Cecil Martin (El tío Bob) y es algo de lo que se ha hablado bastante en los últimos años dentro de la comunidad de Android.
 Surge con la problemática de que en un framework se encuentra más código que lo representa, en lugar del problema que está resolviendo, es decir, la idea es centrarse en lo que tiene que hacer la aplicación como tal y es por ello que dice que debemos de pensar en él framework como el mecanismo de paso de mensajes hacia nuestro software, el cual se debe mirar como una herramienta o plugin de lo que queremos realizar.
@@ -62,7 +62,7 @@ Toda lógica de negocio ocurre en esta capa, aquí solo lo enfocado a que tiene 
 #####Data layer.
 Es la capa en donde se obtienen todos los datos que necesita nuestra aplicación para funcionar y los datos pueden ser de proveídos por una base de datos, de la red o de la memoria o de donde nos imaginemos particularmente en android hacemis uso de Repository Pattern, un patrón que permite abstraer el origen de datos en donde no va a importar de dónde vengan, lo más importante es que serán obtenidos de algún lugar y podemos utilizarlos para hacer que las acciones que tengamos que hacer.
 
-#### Investigar la biblioteca EventBus y como esta nos ayuda a comunicarnos dentro de nuestra aplicación.
+## Investigar la biblioteca EventBus y como esta nos ayuda a comunicarnos dentro de nuestra aplicación.
 EventBus es una biblioteca optimizada para android de publicación/evento, simplifica la comunicación entre componentes:
 * Desacopla eventos "senders" y "recievers".
 * Funciona bien con actividades, fragmentos y fondos hilados (backgound trheads).
