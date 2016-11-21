@@ -63,5 +63,48 @@ Toda lógica de negocio ocurre en esta capa, aquí solo lo enfocado a que tiene 
 Es la capa en donde se obtienen todos los datos que necesita nuestra aplicación para funcionar y los datos pueden ser de proveídos por una base de datos, de la red o de la memoria o de donde nos imaginemos particularmente en android hacemis uso de Repository Pattern, un patrón que permite abstraer el origen de datos en donde no va a importar de dónde vengan, lo más importante es que serán obtenidos de algún lugar y podemos utilizarlos para hacer que las acciones que tengamos que hacer.
 
 #### Investigar la biblioteca EventBus y como esta nos ayuda a comunicarnos dentro de nuestra aplicación.
-EventBus es una biblioteca optimizada para android de publicación/evento, simplifica la comunicación entre componentes
+EventBus es una biblioteca optimizada para android de publicación/evento, simplifica la comunicación entre componentes:
+* Desacopla eventos "senders" y "recievers".
+* Funciona bien con actividades, fragmentos y fondos hilados (backgound trheads).
+* Evita dependencias complejas y propensas a error y problemas del ciclo de vida.
+* Hace el código más simple.
+* Es rápida.
+* Es pequeña (~50k jar)
+* Está probada en aplicaciones con más de cien millones de instalaciones.
+* Tiene características avanzadas como la entrega de hilos, prioridades del suscriptor, etc.
 
+Para utilizar EventBus se seguirán los siguientes pasos.
+
+#####1.- Definir los eventos:
+
+```Java
+public static class MessageEvent { /* Additional fields if needed */ }
+```
+#####2.- Preparar los subscriptores: Declara y anota tu método subscriptor, opcionalmente especifica un modo de hilos.
+
+```Java
+@Subscribe(threadMode = ThreadMode.MAIN)  
+public void onMessageEvent(MessageEvent event) {/* Do something */};
+```
+
+Registra y "desregistra" al subscriptor. Por ejemplo en Android, actividades y fragmentos usualmente se registran de acuerdo a su ciclo de vida.
+
+```Java
+@Override
+public void onStart() {
+    super.onStart();
+    EventBus.getDefault().register(this);
+}
+
+@Override
+public void onStop() {
+    super.onStop();
+    EventBus.getDefault().unregister(this);
+}
+```
+
+#####3.- Postea los eventos.
+
+```Java
+EventBus.getDefault().post(new MessageEvent());
+```
