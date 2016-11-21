@@ -22,5 +22,35 @@ Es por ello que se introduce el MVP que es un patrón derivado de MVC comúnment
 
 #### Investigar más a detalle la arquitectura CLEAN.
 
+La arquitectura Clean fue propuesta por Robert Cecil Martin (El tío Bob) y es algo de lo que se ha hablado bastante en los últimos años dentro de la comunidad de Android.
+Surge con la problemática de que en un framework se encuentra más código que lo representa, en lugar del problema que está resolviendo, es decir, la idea es centrarse en lo que tiene que hacer la aplicación como tal y es por ello que dice que debemos de pensar en él framework como el mecanismo de paso de mensajes hacia nuestro software, el cual se debe mirar como una herramienta o plugin de lo que queremos realizar.
+
+El tío Bob menciona que más que una arquitectura, es una serie de reglas que se deben cumplir para que una arquitectura sea considerada "clean".
+
+Tiene la siguiente estructura.
+![Clean Architecture](images/clean_archi.png)
+
+
+Lo único que nos dice es que hay que respetar la regla de dependencia "Dependency rule." que establece que "El código fuente sólo puede apuntar hacia adentro".
+
+##### Entities (Entidades).
+
+Son aquellos objetos que van a representar los actores importantes de la lógica de negocio de nuestra aplicación.
+
+##### Use cases (Casos de uso).
+
+Están muy relacionados con las entidades y son los encargados de implementar lógica de negocio de nuestra aplicación, ya que van a orientar todas aquellas interacciones del flujo de datos y entidades dejando al framework fuera de todo esto (En nuestro caso el sdk android), también  se conocen como interactores.
+
+##### Interface adapters (Adaptdores de interfaz).
+
+Convierten los datos en el formato más conveniente para los casos de uso y entidades. 
+
+##### Frameworks and drivers.
+Aquí es donde residen los detalles y todo ese conjunto de plataformas externas y herramientas como puede ser la UI, Web, DB, dispositivos, etc. generalmente sólo se deben comunicar con el siguiente círculo a su interior
+
+
+![android clean architecture](images/android_archi.png)
+
+
 
 
